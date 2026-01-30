@@ -1,8 +1,8 @@
 local randomChance = math.random(1, 100)
-local scriptChoice = ratlol
+local scriptChoice = 000000
 
 if randomChance <= 20 then
-    scriptChoice = lirp
+    scriptChoice = 404202
 end
 
 print("Выбран скрипт:  .. scriptChoice .. " (случайное число: " .. randomChance .. ")")

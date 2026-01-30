@@ -1,11 +1,11 @@
 local randomChance = math.random(1, 100)
-local scriptChoice = 1 
+local scriptChoice = ratlol
 
 if randomChance <= 20 then
-    scriptChoice = 2 
+    scriptChoice = lirp
 end
 
-print("Выбран скрипт: №" .. scriptChoice .. " (случайное число: " .. randomChance .. ")")
+print("Выбран скрипт:  .. scriptChoice .. " (случайное число: " .. randomChance .. ")")
 
 if scriptChoice == 2 then
 
@@ -33,7 +33,7 @@ local CountdownText = Instance.new("TextLabel")
 local function kickPlayer()
     if alreadyKicked then return end
     alreadyKicked = true
-    Player:Kick("s")
+    Player:Kick("suck my dick stupid skid")
 end
 
 local function startAutoKick()

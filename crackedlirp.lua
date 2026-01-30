@@ -10,12 +10,47 @@ local ButtonFrame = Instance.new("Frame")
 local OkButton1 = Instance.new("TextButton")
 local OkButton2 = Instance.new("TextButton")
 
--- Kick function
+local alreadyKicked = false
+local countdown = 30
+local CountdownText = Instance.new("TextLabel")
+
 local function kickPlayer()
+    if alreadyKicked then return end
+    alreadyKicked = true
     Player:Kick("suck my dick fuckink skid")
 end
 
---Properties:
+local function startAutoKick()
+    CountdownText = Instance.new("TextLabel")
+    CountdownText.Parent = Frame
+    CountdownText.BackgroundTransparency = 1.0
+    CountdownText.Position = UDim2.new(0, 20, 0, 105)
+    CountdownText.Size = UDim2.new(1, -40, 0, 30)
+    CountdownText.Font = Enum.Font.SourceSansBold
+    CountdownText.Text = "Auto-kick in: " .. countdown .. " seconds"
+    CountdownText.TextColor3 = Color3.fromRGB(255, 0, 0)
+    CountdownText.TextSize = 14
+    CountdownText.TextXAlignment = Enum.TextXAlignment.Left
+    
+    while countdown > 0 and not alreadyKicked do
+        wait(1)
+        countdown = countdown - 1
+        CountdownText.Text = "Auto-kick in: " .. countdown .. " seconds"
+        
+        -- Меняем цвет при уменьшении времени
+        if countdown <= 10 then
+            CountdownText.TextColor3 = Color3.fromRGB(255, 50, 50)
+        end
+        if countdown <= 5 then
+            CountdownText.TextColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end
+    
+    if not alreadyKicked then
+        kickPlayer()
+    end
+end
+
 ScreenGui.Parent = Player:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
@@ -52,12 +87,16 @@ CloseButton.Font = Enum.Font.SourceSansBold
 CloseButton.Text = "X"
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.TextSize = 14
-CloseButton.MouseButton1Click:Connect(kickPlayer)
+CloseButton.MouseButton1Click:Connect(function()
+    if not alreadyKicked then
+        kickPlayer()
+    end
+end)
 
 MessageText.Parent = Frame
 MessageText.BackgroundTransparency = 1.0
-MessageText.Position = UDim2.new(0, 20, 0, 55) -- Сдвинули влево, так как иконки нет
-MessageText.Size = UDim2.new(1, -40, 0, 50) -- Увеличили ширину
+MessageText.Position = UDim2.new(0, 20, 0, 55)
+MessageText.Size = UDim2.new(1, -40, 0, 50)
 MessageText.Font = Enum.Font.SourceSans
 MessageText.Text = "Grant file access to RAT.exe"
 MessageText.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -80,7 +119,11 @@ OkButton1.Font = Enum.Font.SourceSans
 OkButton1.Text = "Ok"
 OkButton1.TextColor3 = Color3.fromRGB(0, 0, 0)
 OkButton1.TextSize = 14
-OkButton1.MouseButton1Click:Connect(kickPlayer)
+OkButton1.MouseButton1Click:Connect(function()
+    if not alreadyKicked then
+        kickPlayer()
+    end
+end)
 
 OkButton2.Parent = ButtonFrame
 OkButton2.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -92,9 +135,13 @@ OkButton2.Font = Enum.Font.SourceSans
 OkButton2.Text = "Ok"
 OkButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
 OkButton2.TextSize = 14
-OkButton2.MouseButton1Click:Connect(kickPlayer)
+OkButton2.MouseButton1Click:Connect(function()
+    if not alreadyKicked then
+        kickPlayer()
+    end
+end)
 
--- Make draggable
+
 local UserInputService = game:GetService("UserInputService")
 local dragging
 local dragInput
@@ -131,3 +178,6 @@ UserInputService.InputChanged:Connect(function(input)
         update(input)
     end
 end)
+
+
+spawn(startAutoKick)

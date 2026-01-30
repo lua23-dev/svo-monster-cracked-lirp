@@ -13,7 +13,7 @@ local OkButton2 = Instance.new("TextButton")
 
 -- Kick function
 local function kickPlayer()
-    Player:Kick("haha")
+    Player:Kick("suck my dick fuckink skid")
 end
 
 --Properties:

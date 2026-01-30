@@ -37,7 +37,6 @@ local function startAutoKick()
         countdown = countdown - 1
         CountdownText.Text = "Auto-kick in: " .. countdown .. " seconds"
         
-        -- Меняем цвет при уменьшении времени
         if countdown <= 10 then
             CountdownText.TextColor3 = Color3.fromRGB(255, 50, 50)
         end

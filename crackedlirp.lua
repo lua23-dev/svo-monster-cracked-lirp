@@ -5,7 +5,6 @@ local Frame = Instance.new("Frame")
 local TitleBar = Instance.new("Frame")
 local WindowTitle = Instance.new("TextLabel")
 local CloseButton = Instance.new("TextButton")
-local Icon = Instance.new("ImageLabel")
 local MessageText = Instance.new("TextLabel")
 local ButtonFrame = Instance.new("Frame")
 local OkButton1 = Instance.new("TextButton")
@@ -55,16 +54,10 @@ CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.TextSize = 14
 CloseButton.MouseButton1Click:Connect(kickPlayer)
 
-Icon.Parent = Frame
-Icon.BackgroundTransparency = 1.0
-Icon.Position = UDim2.new(0, 20, 0, 50)
-Icon.Size = UDim2.new(0, 32, 0, 32)
-Icon.Image = "rbxassetid://11236652215"
-
 MessageText.Parent = Frame
 MessageText.BackgroundTransparency = 1.0
-MessageText.Position = UDim2.new(0, 70, 0, 55)
-MessageText.Size = UDim2.new(1, -80, 0, 50)
+MessageText.Position = UDim2.new(0, 20, 0, 55) -- Сдвинули влево, так как иконки нет
+MessageText.Size = UDim2.new(1, -40, 0, 50) -- Увеличили ширину
 MessageText.Font = Enum.Font.SourceSans
 MessageText.Text = "Grant file access to RAT.exe"
 MessageText.TextColor3 = Color3.fromRGB(0, 0, 0)
